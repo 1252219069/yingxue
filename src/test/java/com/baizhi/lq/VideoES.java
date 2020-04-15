@@ -47,12 +47,6 @@ public class VideoES {
         //videoRepository.delete(video);
     }
 
-    @Test
-    public void querySearchVideoe() {
-        String id = "059e6641494f465d92c547f9fc6b80b7";
-        Video video = videoMapper.selectByPrimaryKey(id);
-        System.out.println(video);
-    }
 
     @Test
     public void ceshi() {
