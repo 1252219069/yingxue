@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.lq.dao.VideoMapper">
+  <sql id="queryVideoSql">
+    v.id id,v.title videoTitle,v.brief description,v.path path,v.cover cover,v.publish_date uploadTime,
+    c.cate_name cateName,
+    u.head_img headImg
+  </sql>
+  <select id="queryByReleaseTime" resultType="com.baizhi.lq.vo.VideoVo">
+    select <include refid="queryVideoSql"/>
+    from video v
+    left join category c on v.category_id=c.id
+    left join user u on v.user_id=u.id
+    order by v.publish_date desc
+  </select>
+</mapper>
