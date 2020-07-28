@@ -29,6 +29,7 @@ public class AppInterfaceController {
         System.out.println("验证码 = " + random);
         String message = AliyunSendPhoneUtil.sendCode(phone, random);
         System.out.println(message);
+
         if (message.equals("发送成功")) {
             return new CommonResult().success("100", "验证码发送成功", phone);
         } else {
